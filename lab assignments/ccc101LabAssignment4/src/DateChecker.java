@@ -20,6 +20,7 @@ public class DateChecker {
 
         System.out.println("Enter a date in the format: mm/dd/yyyy");
         input = keyInput.nextLine();
+        keyInput.close();
         input=input.trim();
 
         reasonInvalid = "";
