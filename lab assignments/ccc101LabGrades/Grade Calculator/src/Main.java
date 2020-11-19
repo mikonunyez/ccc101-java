@@ -2,7 +2,7 @@ public class Main {
     public static void main(String[] args){
         Grades grades = new Grades();
 
-        grades.userInput();
+        grades.userInput(); 
         System.out.println();
 
         grades.ofA();

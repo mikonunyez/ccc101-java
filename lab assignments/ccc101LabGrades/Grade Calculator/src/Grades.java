@@ -1,26 +1,31 @@
 import java.util.Scanner;
-import java.util.ArrayList;
+import java.util.ArrayList; //required for ArrayLists
+
+// as per usual, 
 
 public class Grades {
     private ArrayList<Integer> gradesList = new ArrayList<Integer>();
+    //using an ArrayList easily allows me to crate a dynamic array
+    //as this best fits the variable type
 
     protected void userInput(){
         Scanner keyInput = new Scanner(System.in);
 
         System.out.println("Enter exam scores: (0-100)");
 
-        int temp = 0;
+        int temp = 0; 
         while (temp >= 0){
             temp = keyInput.nextInt();
-            gradesList.add(temp);
+            gradesList.add(temp); // saves user input into the gradesList ArrayList
         }
         temp = gradesList.size();
-        gradesList.remove(temp-1);
+        gradesList.remove(temp-1); //removes the last data in the ArrayList. that data is only used to stop the input loop
 
         System.out.println("Total number of grades: " + gradesList.size());
     }
 
-
+// the following methods loop through the gradesList ArrayList
+// they then compare the grades in there and count them in a counter as they fit a condition
     protected void ofA(){
         int numOfA = 0;
         for (int i = 0; i < gradesList.size(); i++){
