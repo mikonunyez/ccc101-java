@@ -4,32 +4,40 @@ import java.util.ArrayList; //required for ArrayLists
 // as per usual, 
 
 public class Grades {
-    private ArrayList<Integer> gradesList = new ArrayList<Integer>();
+    private int[] gradesList;
+    private int numOfGrades = 0;
+    private int  temp = 0;
+    private int tempInput = 0;
     //using an ArrayList easily allows me to crate a dynamic array
     //as this best fits the variable type
 
     protected void userInput(){
         Scanner keyInput = new Scanner(System.in);
 
+        System.out.println("How many grades are you entering?");
+        tempInput = keyInput.nextInt();
+        numOfGrades = tempInput;
+        gradesList = new int[numOfGrades];
+
         System.out.println("Enter exam scores: (0-100)");
 
-        int temp = 0; 
-        while (temp >= 0){
-            temp = keyInput.nextInt();
-            gradesList.add(temp); // saves user input into the gradesList ArrayList
+        while (temp < numOfGrades){
+            tempInput = keyInput.nextInt();
+            gradesList[temp] = tempInput;
+            temp++;
         }
-        temp = gradesList.size();
-        gradesList.remove(temp-1); //removes the last data in the ArrayList. that data is only used to stop the input loop
+//        temp = gradesList.size();
+//        gradesList.remove(temp-1); //removes the last data in the ArrayList. that data is only used to stop the input loop
 
-        System.out.println("Total number of grades: " + gradesList.size());
+        System.out.println("Total number of grades: " + numOfGrades);
     }
 
 // the following methods loop through the gradesList ArrayList
 // they then compare the grades in there and count them in a counter as they fit a condition
     protected void ofA(){
         int numOfA = 0;
-        for (int i = 0; i < gradesList.size(); i++){
-            if (gradesList.get(i) >= 90 && gradesList.get(i) <= 100){
+        for (int i = 0; i < gradesList.length; i++){
+            if ((gradesList[i]) >= 90 && (gradesList[i]) <= 100){
                 numOfA++;
             }
         }
@@ -40,8 +48,8 @@ public class Grades {
 
     protected void ofB(){
         int numOfB = 0;
-        for (int i = 0; i < gradesList.size(); i++){
-            if (gradesList.get(i) >= 80 && gradesList.get(i) <= 89){
+        for (int i = 0; i < gradesList.length; i++){
+            if ((gradesList[i]) >= 80 && (gradesList[i]) <= 89){
                 numOfB++;
             }
         }
@@ -52,8 +60,8 @@ public class Grades {
 
     protected void ofC(){
         int numOfC = 0;
-        for (int i = 0; i < gradesList.size(); i++){
-            if (gradesList.get(i) >= 70 && gradesList.get(i) <= 79){
+        for (int i = 0; i < gradesList.length; i++){
+            if ((gradesList[i]) >= 70 && (gradesList[i]) <= 79){
                 numOfC++;
             }
         }
@@ -64,8 +72,8 @@ public class Grades {
 
     protected void ofD(){
         int numOfD = 0;
-        for (int i = 0; i < gradesList.size(); i++){
-            if (gradesList.get(i) >= 60 && gradesList.get(i) <= 69){
+        for (int i = 0; i < gradesList.length; i++){
+            if ((gradesList[i]) >= 60 && (gradesList[i]) <= 69){
                 numOfD++;
             }
         }
@@ -76,8 +84,8 @@ public class Grades {
 
     protected void ofF(){
         int numOfF = 0;
-        for (int i = 0; i < gradesList.size(); i++){
-            if (gradesList.get(i) <= 59){
+        for (int i = 0; i < gradesList.length; i++){
+            if (gradesList[i] <= 59){
                 numOfF++;
             }
         }
